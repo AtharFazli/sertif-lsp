@@ -20,30 +20,38 @@ class UserSeeder extends Seeder
             'password'  => bcrypt('password')
         ]);
 
-        $no = str_pad(rand(1, 9999999), 7, '0', STR_PAD_LEFT);
-
+        $no1 = str_pad(rand(1, 9999999), 7, '0', STR_PAD_LEFT);
+        
         Peserta::create([
-            'no_sertif' => $no,
+            'no_sertif' => $no1,
             'nama' => 'Athar',
             'tema_pelatihan' => 'Laravel',
         ]);
+
+        $no2 = str_pad(rand(1, 9999999), 7, '0', STR_PAD_LEFT);
         Peserta::create([
-            'no_sertif' => $no,
+            'no_sertif' => $no2,
             'nama' => 'Dipta',
             'tema_pelatihan' => 'JS',
         ]);
+
+        $no3 = str_pad(rand(1, 9999999), 7, '0', STR_PAD_LEFT);
         Peserta::create([
-            'no_sertif' => $no,
+            'no_sertif' => $no3,
             'nama' => 'Bayu',
             'tema_pelatihan' => 'Tailwind',
         ]);
+
+        $no4 = str_pad(rand(1, 9999999), 7, '0', STR_PAD_LEFT);
         Peserta::create([
-            'no_sertif' => $no,
+            'no_sertif' => $no4,
             'nama' => 'Naufal',
             'tema_pelatihan' => 'Codeigniter',
         ]);
+
+        $no5 = str_pad(rand(1, 9999999), 7, '0', STR_PAD_LEFT);
         Peserta::create([
-            'no_sertif' => $no,
+            'no_sertif' => $no5,
             'nama' => 'Aziz',
             'tema_pelatihan' => 'PHP',
         ]);
