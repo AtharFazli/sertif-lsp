@@ -21,13 +21,13 @@
                     <td>{{ $peserta->no_sertif }}</td>
                     <td>{{ $peserta->tema_pelatihan }}</td>
                     <td>
-                        <form action="{{ route('peserta.destroy'), $peserta->id }}" method="post">
+                        <form action="{{ route('peserta.destroy', $peserta->id) }}" method="post">
                         @method('DELETE')
                         @csrf
-                        </form>
-                        <a href="{{ route('peserta.show'), $peserta->id }}" class="btn btn-info">Info</a>
-                        <a href="{{ route('peserta.edit'), $peserta->id }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('peserta.show', $peserta->id) }}" class="btn btn-info">Info</a>
+                        <a href="{{ route('peserta.edit', $peserta->id) }}" class="btn btn-warning">Edit</a>
                         <button type="submit" class="btn btn-danger">Hapus</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

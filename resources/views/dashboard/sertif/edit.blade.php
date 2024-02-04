@@ -1,6 +1,19 @@
 @extends('dashboard.layout.master')
 
 @section('index')
+
+@if ($errors->any())
+
+@foreach ($errors->all() as $item)
+
+<div class="alert alert-danger">
+        <li>{{ $item }}</li>
+
+</div>
+    
+@endforeach
+    
+@endif
     <form action="{{ route('sertif.update', $sertif->id) }}" method="post" enctype="multipart/form-data">
         @method('PATCH')
         @csrf

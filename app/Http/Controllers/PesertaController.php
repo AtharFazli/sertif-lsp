@@ -15,7 +15,7 @@ class PesertaController extends Controller
         $pesertas = Peserta::orderBy('id', 'desc')->get();
         return view('dashboard.peserta.index', compact('pesertas'));
     }
-    
+
     /**
      * Show the form for creating a new resource.
      */
@@ -49,25 +49,37 @@ class PesertaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Peserta $peserta)
     {
-        //
+        return view('dashboard.peserta.show', compact('peserta'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Peserta $peserta)
     {
-        //
+        return view('dashboard.peserta.edit', compact('peserta'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Peserta $peserta)
     {
-        //
+        $request->validate([
+            'nama'              => 'required',
+            'tema_pelatihan'    => 'required'
+        ]);
+
+
+
+        $peserta->update([
+            'nama'              => $request->nama,
+            'tema_pelatihan'    => $request->tema_pelatihan
+        ]);
+
+        return to_route('peserta.index')->with('success');
     }
 
     /**

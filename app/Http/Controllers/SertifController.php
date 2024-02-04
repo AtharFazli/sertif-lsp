@@ -59,8 +59,8 @@ class SertifController extends Controller
             'instansi_pengajar' => 'required',
             'tempat'            => 'required',
             'tanggal'           => 'required',
-            'ttd_pimpinan'      => 'image|mimes:png|max:2048',
-            'ttd_pengajar'      => 'image|mimes:png|max:2048'
+            'ttd_pimpinan'      => 'image|mimes:png,jpg,jpeg|max:2048',
+            'ttd_pengajar'      => 'image|mimes:png,jpg,jpeg|max:2048'
         ]);
 
         if ($request->file('ttd_pimpinan')) {
@@ -69,7 +69,7 @@ class SertifController extends Controller
                 File::delete($sertif->ttd_pimpinan);
             }
 
-            $request->file('ttd_pimpinan')->move(public_path('ttd', $namaCEO));
+            $request->file('ttd_pimpinan')->move(public_path('ttd'), $namaCEO);
         }
 
         if ($request->file('ttd_pengajar')) {
@@ -78,7 +78,7 @@ class SertifController extends Controller
                 File::delete($sertif->ttd_pengajar);
             }
 
-            $request->file('ttd_pengajar')->move(public_path('ttd', $namaPengajar));
+            $request->file('ttd_pengajar')->move(public_path('ttd'), $namaPengajar);
         }
 
 
@@ -91,6 +91,8 @@ class SertifController extends Controller
             'ttd_pimpinan'      => 'ttd/' . $namaCEO,
             'ttd_pengajar'      => 'ttd/' . $namaPengajar
         ]);
+
+        return to_route('peserta.index')->with('success');
     }
 
     /**

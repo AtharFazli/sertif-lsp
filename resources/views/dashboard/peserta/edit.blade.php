@@ -15,6 +15,6 @@
         </div>
 
         <a href="{{ route('peserta.index') }}" class="btn btn-outline-danger">Batal</a>
-        <button type="submit" class="btn btn-outline-primary">Tambah</button>
+        <button type="submit" class="btn btn-outline-primary">Simpan</button>
     </form>
 @endsection
