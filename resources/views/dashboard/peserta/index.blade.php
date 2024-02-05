@@ -1,7 +1,7 @@
 @extends('dashboard.layout.master')
 
 @section('index')
-    <a href="{{ route('peserta.create') }}" class="btn btn-primary mb-3">Tambah Peserta</a>
+    <a href="{{ route('peserta.create') }}" class="btn btn-outline-primary mb-3">Tambah Peserta</a>
 
     <h5>List Data Peserta</h5>
 
@@ -26,9 +26,10 @@
                         <form action="{{ route('peserta.destroy', $peserta->id) }}" method="post">
                             @method('DELETE')
                             @csrf
-                            <a href="{{ route('peserta.show', $peserta->id) }}" class="btn btn-info">Info</a>
-                            <a href="{{ route('peserta.edit', $peserta->id) }}" class="btn btn-warning">Edit</a>
-                            <button type="submit" class="btn btn-danger">Hapus</button>
+                            <button type="submit" class="btn"><i data-feather="x-circle"></i></button>
+                            <a href="{{ route('peserta.edit', $peserta->id) }}" class="btn"><i data-feather="edit"></i></a>
+                            <a href="{{ route('print') }}" class="btn print-button"><i data-feather="printer"></i></a>
+
                         </form>
                     </td>
                 </tr>
@@ -50,5 +51,9 @@
                 dom: "fltp"
             });
         })
+    </script>
+
+    <script>
+        feather.replace();
     </script>
 @endpush

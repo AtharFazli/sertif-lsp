@@ -31,7 +31,7 @@
     <main>
         <div class="container">
             <div class="mb-3">
-                <h3 class="text-center mb-3" style="margin-top: 15rem">Dapatkan Sertifikatmu Disini</h3>
+                <h3 class="text-center mb-3 " style="margin-top: 15rem">Dapatkan Sertifikatmu Disini</h3>
                 <div class="row">
                     <div class="col-4"></div>
                     <div class="col-4">

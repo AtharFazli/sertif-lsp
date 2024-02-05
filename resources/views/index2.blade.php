@@ -79,7 +79,7 @@
                             <td>{{ $user->no_sertif }}</td>
                             <td>{{ $user->tema_pelatihan }}</td>
                             <td>
-                                <a href="{{ route('print', $user->id) }}">DOWNLOAD</a>
+                                <a href="{{ route('print', $user->id) }}" target="_blank">DOWNLOAD</a>
                             </td>
                         </tr>
 

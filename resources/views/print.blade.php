@@ -37,7 +37,7 @@
         }
 
         .certificate-title {
-            font-size: 150px;
+            font-size: 80px;
             /* background-color: red; */
             padding: 100px
         }
@@ -54,7 +54,7 @@
         }
 
         .certificate-name {
-            font-size: 80px;
+            font-size: 60px;
         }
 
         .certificate-text {
@@ -72,6 +72,13 @@
             text-align: center;
         }
 
+        .certificate-no {
+            font-size: 30px; 
+            /* margin-left: 80px;  */
+            align-items: center;
+            text-align: center;
+        }
+
         .signature-image {
             width: 300px;
 
@@ -83,27 +90,40 @@
 
 <body>
     <div style="width: 100%; position: absolute;margin: 0">
-        <img src="{{ asset('sertif/sertif3.png') }}" class="certificate-image" alt="">
+        <img 
+        @if ($peserta->sertif->desain == 1)
+        src="{{ asset('sertif/sertif1.png') }}"
+        
+        @elseif ($peserta->sertif->desain == 2)
+        src="{{ asset('sertif/sertif2.png') }}"
+        
+        @elseif ($peserta->sertif->desain == 3)
+        src="{{ asset('sertif/sertif3.png') }}"
+
+        @endif
+        class="certificate-image" alt="">
 
     </div>
     <div style="position: relative; padding: 0;padding-top: 50px; text-align: center;">
-        <span class="certificate-title">Sertifikat Penghargaam</span><br>
-        <span class="certificate-name">{{ $peserta->nama }}</span><br><br><br>
+        <span class="certificate-no">{{ $peserta->no_sertif }}</span><br>
+        <span class="certificate-title">Sertifikat Penghargaan</span><br><br>
+        <span class="certificate-text">Dengan bangga kami berikan kepada</span><br>
+        <span class="certificate-name">{{ $peserta->nama }}</span><br><br>
         <hr style="width: 40%"><br><br><br>
         <span class="certificate-text">karena telah mengikuti pelatihan
         </span><br><br><br>
         <span class="certificate-text">{{ $peserta->tema_pelatihan }}</span><br><br><br>
-        <span class="certificate-text">Awarded {{ $sertif->tanggal }}
+        <span class="certificate-text">Pada tanggal {{ $peserta->sertif->tanggal }}
         </span><br>
         <br><br><br><br><br>
         <table class="certificate-border">
             <tr>
-                <td><img class="signature-image" src="{{ asset($sertif->ttd_pimpinan) }}"
-                        alt="{{ $sertif->ttd_pimpinan }}">
+                <td><img class="signature-image" src="{{ asset($peserta->sertif->ttd_pimpinan) }}"
+                        alt="{{ $peserta->sertif->ttd_pimpinan }}">
                 </td>
                 <td rowspan="4" style="font-size: 75px">X</td>
-                <td><img class="signature-image" src="{{ asset($sertif->ttd_pengajar) }}"
-                        alt="{{ $sertif->ttd_pengajar }}"></td>
+                <td><img class="signature-image" src="{{ asset($peserta->sertif->ttd_pengajar) }}"
+                        alt="{{ $peserta->sertif->ttd_pengajar }}"></td>
             </tr>
             <tr>
                 <td>
@@ -114,12 +134,12 @@
                 </td>
             </tr>
             <tr>
-                <td class="certificate-text">Dipta</td>
-                <td class="certificate-text">Athar</td>
+                <td class="certificate-text">{{ $peserta->sertif->ceo }}</td>
+                <td class="certificate-text">{{ $peserta->sertif->nama_pengajar }}</td>
             </tr>
             <tr>
-                <td class="certificate-subtext">CEO of Yanto</td>
-                <td class="certificate-subtext">Trainer at Yanto</td>
+                <td class="certificate-subtext">CEO Codely</td>
+                <td class="certificate-subtext">Pengajar dari {{ $peserta->sertif->instansi_pengajar }}</td>
             </tr>
         </table>
     </div>

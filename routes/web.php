@@ -26,9 +26,10 @@ Route::post('/user', function (Request $request) {
     $search = $request->nama;
     $users = null;
     if (!empty($search)) {
-        $users = Peserta::where('nama', 'like', "%{$search}%")->get();
+        $users = Peserta::where('nama', 'like', "%{$search}%")->with('sertif')->get();
+        return view('index2', compact('users'));
     }
-    return view('index2', compact('users'));
+    return redirect()->back();  
 });
 
 Route::get('print/{peserta}', [PdfController::class, 'pdf'])->name('print');

@@ -54,6 +54,7 @@ class SertifController extends Controller
     public function update(Request $request, Sertif $sertif)
     {
         $request->validate([
+            'desain'            => 'required',
             'ceo'               => 'required',
             'nama_pengajar'     => 'required',
             'instansi_pengajar' => 'required',
@@ -81,16 +82,49 @@ class SertifController extends Controller
             $request->file('ttd_pengajar')->move(public_path('ttd'), $namaPengajar);
         }
 
+        if ($request->file('ttd_pimpinan') && $request->file('ttd_pengajar')) {
+            $sertif->update([
+                'desain'            => $request->desain,
+                'ceo'               => $request->ceo,
+                'nama_pengajar'     => $request->nama_pengajar,
+                'instansi_pengajar' => $request->instansi_pengajar,
+                'tempat'            => $request->tempat,
+                'tanggal'           => $request->tanggal,
+                'ttd_pimpinan'      => 'ttd/' . $namaCEO,
+                'ttd_pengajar'      => 'ttd/' . $namaPengajar
+            ]);
+        } elseif ($request->file('ttd_pimpinan')) {
+            $sertif->update([
+                'desain'            => $request->desain,
+                'ceo'               => $request->ceo,
+                'nama_pengajar'     => $request->nama_pengajar,
+                'instansi_pengajar' => $request->instansi_pengajar,
+                'tempat'            => $request->tempat,
+                'tanggal'           => $request->tanggal,
+                'ttd_pimpinan'      => 'ttd/' . $namaCEO,
+            ]);
+        } elseif ($request->file('ttd_pengajar')) {
+            $sertif->update([
+                'desain'            => $request->desain,
+                'ceo'               => $request->ceo,
+                'nama_pengajar'     => $request->nama_pengajar,
+                'instansi_pengajar' => $request->instansi_pengajar,
+                'tempat'            => $request->tempat,
+                'tanggal'           => $request->tanggal,
+                'ttd_pengajar'      => 'ttd/' . $namaPengajar
+            ]);
+        } else {
+            $sertif->update([
+                'desain'            => $request->desain,
+                'ceo'               => $request->ceo,
+                'nama_pengajar'     => $request->nama_pengajar,
+                'instansi_pengajar' => $request->instansi_pengajar,
+                'tempat'            => $request->tempat,
+                'tanggal'           => $request->tanggal,
+            ]);
+        }
 
-        $sertif->update([
-            'ceo'               => $request->ceo,
-            'nama_pengajar'     => $request->nama_pengajar,
-            'instansi_pengajar' => $request->instansi_pengajar,
-            'tempat'            => $request->tempat,
-            'tanggal'           => $request->tanggal,
-            'ttd_pimpinan'      => 'ttd/' . $namaCEO,
-            'ttd_pengajar'      => 'ttd/' . $namaPengajar
-        ]);
+
 
         return to_route('peserta.index')->with('success');
     }

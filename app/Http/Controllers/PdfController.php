@@ -11,10 +11,11 @@ class PdfController extends Controller
     public function pdf(Peserta $peserta)
     {
         $peserta->load('sertif');
-        return $peserta;
-        return view('print', compact('peserta', 'sertif'));
-        $pdf = Pdf::loadView('sertif')->setPaper('a4', 'landscape');
+        // return $peserta;
+        // return view('print', compact('peserta'));
+        $pdf = Pdf::loadView('print', compact('peserta'));
+        // ->setPaper('a4', 'portrait');
 
-        // return $pdf->stream();
+        return $pdf->stream('Sertif_codely.pdf');
     }
 }
