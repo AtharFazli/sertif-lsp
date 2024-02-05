@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('pesertas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('sertif_id')->references('id')->on('sertifs')->onDelete('cascade');
             $table->uuid('no_sertif');
             $table->string('nama');
             $table->string('tema_pelatihan');

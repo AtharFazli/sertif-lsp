@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Sertif extends Model
 {
@@ -18,5 +19,9 @@ class Sertif extends Model
         'ttd_pimpinan',
         'ttd_pengajar'
     ];
+
+    public function peserta() : BelongsTo {
+        return $this->belongsTo(Peserta::class);
+    }
 
 }

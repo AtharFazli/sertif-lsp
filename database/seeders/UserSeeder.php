@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
         $no1 = str_pad(rand(1, 9999999), 7, '0', STR_PAD_LEFT);
         
         Peserta::create([
+            'sertif_id' => 1,
             'no_sertif' => $no1,
             'nama' => 'Athar',
             'tema_pelatihan' => 'Laravel',
@@ -30,6 +31,7 @@ class UserSeeder extends Seeder
 
         $no2 = str_pad(rand(1, 9999999), 7, '0', STR_PAD_LEFT);
         Peserta::create([
+            'sertif_id' => 1,
             'no_sertif' => $no2,
             'nama' => 'Dipta',
             'tema_pelatihan' => 'JS',
@@ -37,6 +39,7 @@ class UserSeeder extends Seeder
 
         $no3 = str_pad(rand(1, 9999999), 7, '0', STR_PAD_LEFT);
         Peserta::create([
+            'sertif_id' => 1,
             'no_sertif' => $no3,
             'nama' => 'Bayu',
             'tema_pelatihan' => 'Tailwind',
@@ -44,6 +47,7 @@ class UserSeeder extends Seeder
 
         $no4 = str_pad(rand(1, 9999999), 7, '0', STR_PAD_LEFT);
         Peserta::create([
+            'sertif_id' => 1,
             'no_sertif' => $no4,
             'nama' => 'Naufal',
             'tema_pelatihan' => 'Codeigniter',
@@ -51,6 +55,7 @@ class UserSeeder extends Seeder
 
         $no5 = str_pad(rand(1, 9999999), 7, '0', STR_PAD_LEFT);
         Peserta::create([
+            'sertif_id' => 1,
             'no_sertif' => $no5,
             'nama' => 'Aziz',
             'tema_pelatihan' => 'PHP',
