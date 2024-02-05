@@ -10,8 +10,14 @@ class Peserta extends Model
     use HasFactory;
 
     protected $fillable = [
+        'sertif_id',
         'no_sertif',
         'nama',
         'tema_pelatihan'
     ];
+
+    public function sertif()
+    {
+        return $this->hasMany(Sertif::class);
+    }
 }

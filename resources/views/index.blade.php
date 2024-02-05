@@ -22,8 +22,6 @@
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                     @auth
                         <a class="nav-link" href="{{ route('peserta.index') }}">Dashboard</a>
-                    @else
-                        <a class="nav-link" href="{{ route('login') }}">Login</a>
                     @endauth
                 </div>
             </div>

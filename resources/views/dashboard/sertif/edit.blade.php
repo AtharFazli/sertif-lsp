@@ -56,10 +56,18 @@
             <div class="mb-3 col-md-6">
                 <label for="ttd_pimpinan" class="form-label">TTD Pimpinan</label>
                 <input value="{{ $sertif->ttd_pimpinan }}" name="ttd_pimpinan" type="file" class="form-control" id="ttd_pimpinan" placeholder="name@example.com">
+                @if ($sertif->ttd_pimpinan)
+                <img width="25%" src="{{ asset($sertif->ttd_pimpinan) }}" alt="">
+                    
+                @endif
             </div>
             <div class="mb-3 col-md-6">
                 <label for="ttd_pengajar" class="form-label">TTD Pengajar</label>
                 <input value="{{ $sertif->ttd_pengajar }}" name="ttd_pengajar" type="file" class="form-control" id="ttd_pengajar" placeholder="name@example.com">
+                @if ($sertif->ttd_pengajar)
+                    
+                <img width="25%" src="{{ asset($sertif->ttd_pengajar) }}" alt="">
+                @endif
             </div>
 
         </div>

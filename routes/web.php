@@ -31,10 +31,14 @@ Route::post('/user', function (Request $request) {
     return view('index2', compact('users'));
 });
 
-Route::get('print', [PdfController::class, 'pdf']);
+Route::get('print/{peserta}', [PdfController::class, 'pdf'])->name('print');
 
 Route::get('sert', function() {
     return view('sertif');
+});
+Route::get('printf', function() {
+
+    return view('print');
 });
 
 Route::middleware('auth')->prefix('dashboard')->group(function () {

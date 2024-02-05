@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Peserta;
+use App\Models\Sertif;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Http\Request;
 
 class PdfController extends Controller
 {
-    public function pdf()
+    public function pdf(Peserta $peserta)
     {
-        $pdf = Pdf::loadView('sertif');
+        $peserta->load('sertif');
+        return $peserta;
+        return view('print', compact('peserta', 'sertif'));
+        $pdf = Pdf::loadView('sertif')->setPaper('a4', 'landscape');
 
-        $pdf->stream('Sertif_Codely.pdf');
+        // return $pdf->stream();
     }
 }

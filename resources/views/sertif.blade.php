@@ -11,6 +11,10 @@
             margin: 0;
             padding: 0;
             background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
 
         .sertifikat {
@@ -20,7 +24,7 @@
             margin: 50px auto;
             border: 2px solid #000;
             box-sizing: border-box;
-            background: url({{ asset('sertif/sertif1.png') }}) no-repeat center center;
+            background: url('{{ asset("sertif/sertif1.png") }}') no-repeat center center;
             background-size: cover;
         }
 

@@ -38,6 +38,7 @@ class PesertaController extends Controller
 
 
         Peserta::create([
+            'sertif_id'         => 1,
             'no_sertif'         => $no,
             'nama'              => $request->nama,
             'tema_pelatihan'    => $request->tema_pelatihan

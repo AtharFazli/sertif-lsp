@@ -18,4 +18,9 @@ class Sertif extends Model
         'ttd_pimpinan',
         'ttd_pengajar'
     ];
+
+    public function peserta()
+    {
+        return $this->belongsTo(Peserta::class);
+    }
 }
