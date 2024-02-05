@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\SertifController;
+use App\Models\Peserta;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +18,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (Request $request) {
     return view('index');
 });
+
+Route::post('/user', function (Request $request) {
+    $search = $request->nama;
+    $users = null;
+    if (!empty($search)) {
+        $users = Peserta::where('nama', 'like', "%{$search}%")->get();
+    }
+    return view('index2', compact('users'));
+});
+
+Route::get('print', [PdfController::class, 'pdf']);
 
 Route::get('sert', function() {
     return view('sertif');

@@ -51,6 +51,7 @@
                     <div class="col-4"></div>
                     <div class="col-auto">
                         <p>Buat akses pembelajaranmu semakin mudah dengan Codely</p>
+                        <a href="{{ url('/') }}" class="btn btn-outline-danger">Reset</a>
 
                     </div>
                     <div class="col-4"></div>
@@ -70,9 +71,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($users as $user)
+                            
                         <tr>
-                            <td colspan="5" class="text-center">Tidak ada hasil</td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $user->nama }}</td>
+                            <td>{{ $user->no_sertif }}</td>
+                            <td>{{ $user->tema_pelatihan }}</td>
+                            <td>
+                                <a href="{{ route('') }}">PRINT</a>
+                            </td>
                         </tr>
+
+                        @endforeach
                         
                     </tbody>
                 </table>
