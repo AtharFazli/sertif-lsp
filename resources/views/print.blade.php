@@ -113,7 +113,7 @@
         <span class="certificate-text">karena telah mengikuti pelatihan
         </span><br><br><br>
         <span class="certificate-text">{{ $peserta->tema_pelatihan }}</span><br><br><br>
-        <span class="certificate-text">Pada tanggal {{ $peserta->sertif->tanggal }}
+        <span class="certificate-text">Pada tanggal {{ date('j, F Y', strtotime($peserta->sertif->tanggal)) }}
         </span><br>
         <br><br><br><br><br>
         <table class="certificate-border">

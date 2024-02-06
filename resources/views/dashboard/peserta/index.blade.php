@@ -28,7 +28,7 @@
                             @csrf
                             <button type="submit" class="btn"><i data-feather="x-circle"></i></button>
                             <a href="{{ route('peserta.edit', $peserta->id) }}" class="btn"><i data-feather="edit"></i></a>
-                            <a href="{{ route('print') }}" class="btn print-button"><i data-feather="printer"></i></a>
+                            <a href="{{ route('print', $peserta->id) }}" target="_blank" class="btn print-button"><i data-feather="printer"></i></a>
 
                         </form>
                     </td>

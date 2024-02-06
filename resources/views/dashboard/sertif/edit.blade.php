@@ -74,42 +74,42 @@
 
         <div class="row mb-5">
             <div class="col-md-4">
-                <img class="mb-3" width="75%" src="{{ asset('sertif/sertif1.png') }}" alt="sertif1">
                 <div class="form-check">
                     <input class="form-check-input" value="1" type="radio" name="desain" id="desain1"
                     @if ($sertif->desain == 1)
-                        @checked(true)
+                    @checked(true)
                     @endif
                     >
                     <label class="form-check-label" for="desain1">
+                        <img class="mb-3 d-block" width="75%" src="{{ asset('sertif/sertif1.png') }}" alt="sertif1">
                         Desain 1
                     </label>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <img class="mb-3" width="75%" src="{{ asset('sertif/sertif2.png') }}" alt="sertif2">
                 <div class="form-check">
                     <input class="form-check-input" value="2" type="radio" name="desain" id="desain2"
                     @if ($sertif->desain == 2)
-                        @checked(true)
+                    @checked(true)
                     @endif
                     >
                     <label class="form-check-label" for="desain2">
+                        <img class="mb-3 d-block" width="75%" src="{{ asset('sertif/sertif2.png') }}" alt="sertif2">
                         Desain 2
                     </label>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <img class="mb-3" width="75%" src="{{ asset('sertif/sertif3.png') }}" alt="sertif3">
                 <div class="form-check">
                     <input class="form-check-input" value="3" type="radio" name="desain" id="desain3"
                     @if ($sertif->desain == 3)
-                        @checked(true)
+                    @checked(true)
                     @endif
                     >
                     <label class="form-check-label" for="desain3">
+                        <img class="mb-3 d-block" width="75%" src="{{ asset('sertif/sertif3.png') }}" alt="sertif3">
                         Desain 3
                     </label>
                 </div>

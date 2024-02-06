@@ -19,7 +19,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
                     @auth
                         <a class="nav-link" href="{{ route('peserta.index') }}">Dashboard</a>
                     @endauth
@@ -39,11 +38,14 @@
                         <form action="{{ url('/user') }}" method="post">
                             @csrf
                             <input type="text" name="nama" class="form-control mb-3" id="nama" placeholder="Tulis nama anda">
-                        </form>
-
+                            
+                            
+                        </div>
+                        <div class="col-4">
+                        <button type="submit" class="btn btn-outline-primary">Cari</button>
+                    </form>
 
                     </div>
-                    <div class="col-4"></div>
                 </div>
                 <div class="row">
                     <div class="col-4"></div>

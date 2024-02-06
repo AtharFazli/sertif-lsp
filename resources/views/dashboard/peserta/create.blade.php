@@ -1,6 +1,8 @@
 @extends('dashboard.layout.master')
 
 @section('index')
+
+<h5>Tambah Peserta</h5>
     <form action="{{ route('peserta.store') }}" method="post">
         @csrf
         <div class="mb-3">

@@ -28,19 +28,13 @@ Route::post('/user', function (Request $request) {
     if (!empty($search)) {
         $users = Peserta::where('nama', 'like', "%{$search}%")->with('sertif')->get();
         return view('index2', compact('users'));
+
     }
     return redirect()->back();  
 });
 
 Route::get('print/{peserta}', [PdfController::class, 'pdf'])->name('print');
 
-Route::get('sert', function() {
-    return view('sertif');
-});
-Route::get('printf', function() {
-
-    return view('print');
-});
 
 Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::resource('peserta', PesertaController::class)->parameters([
